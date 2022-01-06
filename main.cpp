@@ -18,10 +18,7 @@ int main() {
     return 0;
 }
 
-//std::string formatString(std::string str) {
-//    return tolower(remove(str.begin(), str.end(), " "));
-//}
-
+//converts a decimal number to binary
 int decimalToBinary(int decimal) {
     if (decimal == 0) {
         return 0;
@@ -30,6 +27,7 @@ int decimalToBinary(int decimal) {
     return (10 * decimalToBinary(decimal / 2) + (decimal % 2));
 }
 
+//converts a binary number to decimal
 int binaryToDecimal(std::string binary, int i) {
     int n = binary.length();
     if (i == n-1) {
@@ -38,8 +36,7 @@ int binaryToDecimal(std::string binary, int i) {
     return ((binary[i] - '0') << (n-i-1)) + binaryToDecimal(binary, i+1);
 }
 
-
-
+//checks to see if a string is a palindrome and returns true or false
 bool palindromeCheck(std::string word, int start, int end) {
     if (start >= end) {
         return true;
@@ -52,6 +49,7 @@ bool palindromeCheck(std::string word, int start, int end) {
     return palindromeCheck(word, ++start, --end);
 }
 
+//reverses a string
 std::string reverseString(std::string str) {
     if (str.length() == 1) {
         return str;
@@ -60,6 +58,7 @@ std::string reverseString(std::string str) {
     return str.at(str.length() - 1) + reverseString(str.substr(0 ,str.length() - 1));
 }
 
+//caesar cipher encryption
 std::string keyEncode(std::string str, int key) {
     if (str.length() == 0) {
         return str;
